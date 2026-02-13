@@ -19,7 +19,7 @@ Claude Desktop の設定ファイルに以下を追加します。
   "mcpServers": {
     "rbpaas-operation-hub": {
       "command": "uvx",
-      "args": ["--from", "git+ssh://git@github.com/mm-gtm/rbpaas-mcp", "rbpaas-mcp"],
+      "args": ["--from", "git+https://github.com/mm-gtm/rbpaas-mcp", "rbpaas-mcp"],
       "env": {
         "RBPAAS_API_URL": "https://your-api.run.app/api",
         "RBPAAS_API_TOKEN": "roh_xxxxx..."
