@@ -5,7 +5,7 @@ from rbpaas_mcp.tools import dashboard, projects, members, feedbacks, optimizati
 
 mcp = FastMCP(
     "RBPaaS Operation Hub",
-    description="Revenue BPaaS オペレーション管理システムのデータにアクセスするMCPサーバー",
+    instructions="Revenue BPaaS オペレーション管理システムのデータにアクセスするMCPサーバー。事業KPI、プロジェクト、エージェント、スケジュール、フィードバック等を照会できます。",
 )
 
 # ツール登録
