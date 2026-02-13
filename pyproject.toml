@@ -1,0 +1,19 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rbpaas-mcp"
+version = "0.1.0"
+description = "RBPaaS Operation Hub MCP Server — Claude Desktop経由で事業データにアクセス"
+requires-python = ">=3.11"
+dependencies = [
+    "mcp[cli]>=1.0.0",
+    "httpx>=0.25.0",
+]
+
+[project.scripts]
+rbpaas-mcp = "rbpaas_mcp:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rbpaas_mcp"]
