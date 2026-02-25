@@ -1,7 +1,7 @@
 """MCP Server セットアップ"""
 from mcp.server.fastmcp import FastMCP
 
-from rbpaas_mcp.tools import dashboard, projects, members, feedbacks, optimization, schedules, work_time, agents
+from rbpaas_mcp.tools import dashboard, projects, members, feedbacks, optimization, schedules, work_time, agents, contracts
 
 mcp = FastMCP(
     "RBPaaS Operation Hub",
@@ -17,6 +17,7 @@ optimization.register(mcp)
 schedules.register(mcp)
 work_time.register(mcp)
 agents.register(mcp)
+contracts.register(mcp)
 
 
 def main():
