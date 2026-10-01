@@ -4,11 +4,11 @@ build-backend = "hatchling.build"
 
 [project]
 name = "rbpaas-mcp"
-version = "0.1.0"
+version = "0.2.0"
 description = "RBPaaS Operation Hub MCP Server — Claude Desktop経由で事業データにアクセス"
 requires-python = ">=3.11"
 dependencies = [
-    "mcp[cli]>=1.0.0",
+    "mcp[cli]>=1.2,<2",
     "httpx>=0.25.0",
 ]
 
