@@ -41,3 +41,23 @@ def register(mcp: FastMCP):
         return await api_client.get("/schedules/change-requests", params={
             "year": year, "month": month, "user_id": user_id,
         })
+
+    @mcp.tool()
+    async def get_schedule_deadline_info(year: int, month: int) -> Any:
+        """対象月のシフト入力締切の情報を取得する。
+
+        Args:
+            year: 年 (例: 2026)
+            month: 月 (1-12)
+        """
+        return await api_client.get("/schedules/deadline-info", params={"year": year, "month": month})
+
+    @mcp.tool()
+    async def get_schedule_deadline_extensions(year: int, month: int) -> Any:
+        """対象月のシフト入力締切の延長一覧を取得する。
+
+        Args:
+            year: 年 (例: 2026)
+            month: 月 (1-12)
+        """
+        return await api_client.get("/schedules/deadline-extensions", params={"year": year, "month": month})

@@ -26,3 +26,23 @@ def register(mcp: FastMCP):
             end_date: 終了日 (YYYY-MM-DD)
         """
         return await api_client.get("/work-time/daily-summary", params={"start_date": start_date, "end_date": end_date})
+
+    @mcp.tool()
+    async def get_user_work_time_history(user_id: str, limit: int = 12) -> Any:
+        """ユーザー1人の月次勤務時間の履歴を取得する。
+
+        Args:
+            user_id: ユーザーID (UUID)
+            limit: 取得する月数
+        """
+        return await api_client.get(f"/work-time/snapshots/{user_id}/history", params={"limit": limit})
+
+    @mcp.tool()
+    async def get_daily_work_records(start_date: str, end_date: str) -> Any:
+        """指定期間の日次勤務レコード（出退勤時刻を含む）をそのまま取得する。
+
+        Args:
+            start_date: 開始日 (YYYY-MM-DD)
+            end_date: 終了日 (YYYY-MM-DD)
+        """
+        return await api_client.get("/work-time/daily-records", params={"start_date": start_date, "end_date": end_date})

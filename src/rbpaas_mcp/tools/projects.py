@@ -78,3 +78,17 @@ def register(mcp: FastMCP):
             group_id: プロジェクトグループID (UUID)
         """
         return await api_client.get(f"/project-groups/{group_id}")
+
+    @mcp.tool()
+    async def get_project_aggregates() -> Any:
+        """合算表示（複数PJをまとめて見る単位）の一覧を取得する。"""
+        return await api_client.get("/project-aggregates")
+
+    @mcp.tool()
+    async def get_resource_simulation_base(months: int = 6) -> Any:
+        """リソースシミュレーションの基礎データ（月別の人員・稼働・需要）を取得する。
+
+        Args:
+            months: 取得する月数（当月含む、最大24）
+        """
+        return await api_client.get("/resource-simulation/base-data", params={"months": months})
